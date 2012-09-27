@@ -87,7 +87,7 @@ import com.lowagie.text.pdf.PdfSignatureAppearance;
 import com.lowagie.text.pdf.PdfSignatureAppearanceOSP;
 import com.lowagie.text.pdf.PdfStamperOSP;
 import com.lowagie.text.pdf.PdfString;
-
+import com.lowagie.text.Image;
 
 
 /**
@@ -121,6 +121,17 @@ public class PDFSigner {
 
   private String openOfficeSelected = null;
 
+  private String graphicSignSelected = null;
+
+  private String fileImgfirma = null;
+
+  private int llx = 340;
+
+  private int lly = 600;
+
+  private int urx = 560;
+
+  private int ury = 700;
 
 
 
@@ -135,7 +146,7 @@ public class PDFSigner {
    * @throws MalformedURLException
    */
   public PDFSigner(X509Certificate[] chain, String serverTimestamp, String usernameTimestamp, String passwordTimestamp, String typeSignatureSelected,
-                   String fieldName, String openOfficeSelected) throws MalformedURLException {
+                   String fieldName, String openOfficeSelected, String graphicSignSelected, String fileImgfirma, int llx, int lly, int urx, int ury) throws MalformedURLException {
 
     logger.info("[PDFSigner.in]:: "
                 + Arrays.asList(new Object[] { chain, serverTimestamp, usernameTimestamp, passwordTimestamp, typeSignatureSelected, fieldName,
@@ -148,6 +159,13 @@ public class PDFSigner {
     this.typeSignatureSelected = typeSignatureSelected;
     this.fieldName = fieldName;
     this.openOfficeSelected = openOfficeSelected;
+    this.graphicSignSelected = graphicSignSelected;
+    this.fileImgfirma = fileImgfirma;
+
+    this.llx = llx;
+    this.lly = lly;
+    this.urx = urx;
+    this.ury = ury;
 
     logger.info("[PDFSigner.out]:: ");
   }
@@ -441,7 +459,7 @@ public class PDFSigner {
             if (!"".equals(fieldName)) {
               sap.setVisibleSignature(fieldName);
             } else {
-              sap.setVisibleSignature(new com.lowagie.text.Rectangle(340, 600, 560, 700), 1, null);
+              sap.setVisibleSignature(new com.lowagie.text.Rectangle(llx, lly, urx, ury), 1, null);
             }
           }
 
@@ -652,13 +670,20 @@ public class PDFSigner {
         if ((fieldName!= null) && (!"".equals(fieldName))) {
           sap.setVisibleSignature(fieldName);
         } else {
-          sap.setVisibleSignature(new com.lowagie.text.Rectangle(340, 600, 560, 700), 1, null);
+          sap.setVisibleSignature(new com.lowagie.text.Rectangle(llx, lly, urx, ury), 1, null);
         }
       }
 
     }
 
-
+    //aggiunta di grafico per la firma
+    if ("true".equals(graphicSignSelected)) {
+    	sap.setSignatureGraphic(Image.getInstance(fileImgfirma));
+    	sap.setRender(2);
+	}
+    else {
+	sap.setRender(0);
+    }
     sap.setExternalDigest(new byte[128], new byte[20], "RSA");
 
     PdfDictionary dic = new PdfDictionary();

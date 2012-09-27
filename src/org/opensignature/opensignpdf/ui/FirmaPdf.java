@@ -62,6 +62,8 @@ public class FirmaPdf extends JFrame implements ActionListener {
 
 	private JLabel modulo = null;
 
+	private JLabel imgfirma = null;
+
 	private JLabel pin = null;
 
 	private JLabel suggerimento = null;
@@ -75,6 +77,8 @@ public class FirmaPdf extends JFrame implements ActionListener {
 	private JTextField ins_file = new JTextField();
 
 	private JTextField ins_modulo = new JTextField();
+	
+	private JTextField ins_imgfirma = new JTextField();
 
 	private JPasswordField ins_pin = new JPasswordField();
 
@@ -97,6 +101,8 @@ public class FirmaPdf extends JFrame implements ActionListener {
 
 	private JButton apri_modulo = null;
 
+	private JButton apri_imgfirma = null;
+
 	private JButton firma = null;
 
 	private ResourceBundle res = null;
@@ -105,9 +111,29 @@ public class FirmaPdf extends JFrame implements ActionListener {
 
 	private JLabel text_openOffice = null;
 
+        private JLabel text_graphicSign = null;
+
 	private JTextField ins_fieldName = new JTextField();
 
 	private JCheckBox ins_openOffice = new JCheckBox();
+
+	private JCheckBox ins_graphicSign = new JCheckBox();
+
+
+	private int llx = 340;
+	private int lly = 600;
+	private int urx = 560;
+	private int ury = 700;
+
+	private JLabel cont_llx = null;
+	private JLabel cont_lly = null;
+	private JLabel cont_urx = null;
+	private JLabel cont_ury = null;
+
+	private JTextField ins_llx = new JTextField();
+	private JTextField ins_lly = new JTextField();
+	private JTextField ins_urx = new JTextField();
+	private JTextField ins_ury = new JTextField();
 
 	public FirmaPdf(String titolo, String pdfToSign, String cryptokiLib) {
 
@@ -117,7 +143,18 @@ public class FirmaPdf extends JFrame implements ActionListener {
 
 		modulo = new JLabel((String) res.getObject("label.cryptoki"));
 
+		imgfirma = new JLabel((String) res.getObject("label.imgfirma"));
+
 		pin = new JLabel((String) res.getObject("label.pin"));
+
+		cont_llx = new JLabel((String) res.getObject("label.llx"));
+		cont_lly = new JLabel((String) res.getObject("label.lly"));
+		cont_urx = new JLabel((String) res.getObject("label.urx"));
+		cont_ury = new JLabel((String) res.getObject("label.ury"));
+		ins_llx.setText(Integer.toString(llx));
+		ins_lly.setText(Integer.toString(lly));
+		ins_urx.setText(Integer.toString(urx));
+		ins_ury.setText(Integer.toString(ury));
 
 		text_serverTimestamp = new JLabel((String) res
 				.getObject("label.timestampserver"));
@@ -134,9 +171,13 @@ public class FirmaPdf extends JFrame implements ActionListener {
 
 		apri_modulo = new JButton((String) res.getObject("label.open"));
 
+		apri_imgfirma = new JButton((String) res.getObject("label.open"));
+
 		firma = new JButton((String) res.getObject("label.sign"));
 
 		ins_modulo.setText((String) res.getObject("default.cryptoki"));
+
+		ins_imgfirma.setText((String) res.getObject("default.imgfirma"));	
 
 		ins_serverTimestamp.setText((String) res
 				.getObject("default.timestampserver"));
@@ -147,6 +188,8 @@ public class FirmaPdf extends JFrame implements ActionListener {
 				.getObject("label.typeSignature"));
 
 		text_openOffice = new JLabel((String) res.getObject("label.openOffice"));
+
+		text_graphicSign = new JLabel((String) res.getObject("label.graphicSign"));
 
 		items_typeSignature = new String[2];
 		items_typeSignature[0] = (String) res
@@ -164,7 +207,7 @@ public class FirmaPdf extends JFrame implements ActionListener {
 		JPanel pannello_centro = new JPanel();
 
 		BorderLayout layout_pp = new BorderLayout();
-		GridLayout layout_pcentro = new GridLayout(9, 3);
+		GridLayout layout_pcentro = new GridLayout(15, 3);
 
 		pannello_principale.setLayout(layout_pp);
 		pannello_centro.setLayout(layout_pcentro);
@@ -205,8 +248,32 @@ public class FirmaPdf extends JFrame implements ActionListener {
 		pannello_centro.add(new JLabel(" "
 				+ (String) res.getObject("label.fieldName.hint")));
 
+		pannello_centro.add(text_graphicSign);
+		pannello_centro.add(ins_graphicSign);
+		pannello_centro.add(new JLabel(" "));
+
+		pannello_centro.add(imgfirma);
+		pannello_centro.add(ins_imgfirma);
+		pannello_centro.add(apri_imgfirma);		
+
 		pannello_centro.add(text_openOffice);
 		pannello_centro.add(ins_openOffice);
+		pannello_centro.add(new JLabel(" "));
+
+		pannello_centro.add(ins_llx);
+		pannello_centro.add(cont_llx);
+		pannello_centro.add(new JLabel(" "));
+
+		pannello_centro.add(ins_lly);
+		pannello_centro.add(cont_lly);
+		pannello_centro.add(new JLabel(" "));
+
+		pannello_centro.add(ins_urx);
+		pannello_centro.add(cont_urx);
+		pannello_centro.add(new JLabel(" "));
+
+		pannello_centro.add(ins_ury);
+		pannello_centro.add(cont_ury);
 		pannello_centro.add(new JLabel(" "));
 
 		pannello_principale.add("North", suggerimento);
@@ -216,6 +283,7 @@ public class FirmaPdf extends JFrame implements ActionListener {
 		firma.addActionListener(this);
 		apri_file.addActionListener(this);
 		apri_modulo.addActionListener(this);
+		apri_imgfirma.addActionListener(this);
 
 		setContentPane(pannello_principale);
 		pannello_principale.setVisible(true);
@@ -260,6 +328,13 @@ public class FirmaPdf extends JFrame implements ActionListener {
 			String modulo_da_aprire = (f == null ? "" : f.getPath());
 			ins_modulo.setText(modulo_da_aprire);
 
+		} else if (sorgente == apri_imgfirma) {
+			JFileChooser apri_box = new JFileChooser();
+			apri_box.showOpenDialog(this);
+			File f = apri_box.getSelectedFile();
+			String imgfirma_da_aprire = (f == null ? "" : f.getPath());
+			ins_imgfirma.setText(imgfirma_da_aprire);
+
 		} else if (sorgente == firma) {
 
 			String message = new String();
@@ -274,11 +349,22 @@ public class FirmaPdf extends JFrame implements ActionListener {
 			// ins_pin.setText("");
 
 			String PKCS11 = ins_modulo.getText().trim();
+			String fileImgfirma = ins_imgfirma.getText().trim();
 			String serverTimestamp = ins_serverTimestamp.getText().trim();
 			String usernameTimestamp = ins_usrTimestamp.getText().trim();
 			String passwordTimestamp = new String(ins_pinTimestamp
 					.getPassword());
 			String typeSignature[] = new String[2];
+
+			String str_llx = ins_llx.getText().trim();
+			String str_lly = ins_lly.getText().trim();
+			String str_urx = ins_urx.getText().trim();
+			String str_ury = ins_ury.getText().trim();
+
+			llx = Integer.parseInt(str_llx);
+			lly = Integer.parseInt(str_lly);
+			urx = Integer.parseInt(str_urx);
+			ury = Integer.parseInt(str_ury);
 
 			typeSignature[0] = "author";
 			typeSignature[1] = "countersigner";
@@ -288,6 +374,9 @@ public class FirmaPdf extends JFrame implements ActionListener {
 			String fieldName = ins_fieldName.getText().trim();
 			String openOfficeSelected = String.valueOf(ins_openOffice
 					.isSelected());
+			String graphicSignSelected = String.valueOf(ins_graphicSign
+					.isSelected());
+
 
 			MyPkcs11 mySign = null;
 			Session session = null;
@@ -347,7 +436,7 @@ public class FirmaPdf extends JFrame implements ActionListener {
 				// -- Signing Files
 				PDFSigner signer = new PDFSigner(certificateChain,
 						serverTimestamp, usernameTimestamp, passwordTimestamp,
-						typeSignatureSelected, fieldName, openOfficeSelected);
+						typeSignatureSelected, fieldName, openOfficeSelected, graphicSignSelected, fileImgfirma, llx, lly, urx, ury);
 				
 				signer.signPDF(mySign, session, pdfFiles, "_sig",
 						"openSignPDF", true);

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/opensignature/!svn/ver/58/opensignpdf/trunk/lib
+END
+iaik.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/opensignature/!svn/ver/19/opensignpdf/trunk/lib/iaik.jar
+END
+itext-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/opensignature/!svn/ver/19/opensignpdf/trunk/lib/itext-1.4.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/opensignature/!svn/ver/36/opensignpdf/trunk/lib/log4j.jar
+END
+bcprov-jdk16-146.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/opensignature/!svn/ver/58/opensignpdf/trunk/lib/bcprov-jdk16-146.jar
+END

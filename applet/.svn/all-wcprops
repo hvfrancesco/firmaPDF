@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/opensignature/!svn/ver/56/opensignpdf/trunk/applet
+END
+OpenSignPDFApplet.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/opensignature/!svn/ver/56/opensignpdf/trunk/applet/OpenSignPDFApplet.html
+END
+PKCS11LibraryFileAndPINCodeDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/opensignature/!svn/ver/56/opensignpdf/trunk/applet/PKCS11LibraryFileAndPINCodeDialog.java
+END
+SmartCardSignerApplet.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/opensignature/!svn/ver/56/opensignpdf/trunk/applet/SmartCardSignerApplet.java
+END

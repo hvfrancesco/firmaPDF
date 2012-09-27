@@ -1,0 +1,83 @@
+<html>
+
+<head>
+   <title>Test OpenSignPDF Applet</title>
+</head>
+
+<body>
+
+	Requirements
+
+<p align="justify">
+	To run you need:<br>
+	- Java Plug-In 1.4 or later, installed in your Web browser.<br>
+	- Smart card reader, smart card and PKCS#11 drivers for it.<br>
+	- You should accept to trust the SmartCardSignerApplet to run with full permissions.
+</p>
+
+
+<form name="mainForm" method="post" action="FileUploadServlet">
+	<table align="center" border="1" cellspacing="0" cellpadding="10" bgcolor="#5F5F5F">
+		<tr><td>
+	
+			<table border="0">
+		        <tr>
+		        	<td>Choose PDF to sign:</td>
+		        	<td><input type="file" name="fileToBeSigned" style="width:350px"></td>
+		        </tr>
+
+		    </table>
+	
+		</td></tr>
+		<tr><td align="center">
+	
+			<object
+				classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"			    
+			    width="130" height="25" mayscript="true">
+			    <param name="type" value="application/x-java-applet;version=1.4">
+				<param name="code" value="SmartCardSignerApplet">
+				<param name="archive" value="SmartCardSignerApplet.jar, itext-1.4.jar, iaik.jar, log4j.jar ">
+			    <param name="mayscript" value="true">
+			    <param name="scriptable" value="true">
+
+			    <param name="fileNameField" value="fileToBeSigned">
+			    <param name="certificationChainField" value="certificationChain">
+			    <param name="typeSign" value="certified">
+			    <param name="signatureField" value="">
+			    <param name="signButtonCaption" value="Sign selected PDF">
+			    <comment>
+				<embed
+					type="application/x-java-applet;version=1.4"
+				 pluginspage="http://java.sun.com/products/plugin/index.html#download"
+			        code="SmartCardSignerApplet" 
+				archive="SmartCardSignerApplet.jar, itext-1.4.jar, iaik.jar, log4j.jar"
+			        width="130" height="25"
+			        mayscript="true" scriptable="true"
+		            uploadForm = "mainForm"
+		            fileNameField="fileToBeSigned"
+		            certificationChainField="certificationChain"
+			    typeSign="certified"
+		            signatureField=""
+		            signButtonCaption="Sign selected PDF">
+				    <noembed>
+			            Document signing applet can not be started because
+			            Java Plugin 1.4 is not installed.
+			        </noembed>
+				</embed>
+
+			    </comment>
+			</object>
+	
+		</td></tr>
+	</table>
+</form>
+</p>
+
+<br><br>
+<center>
+<a href=http://opensignature.sourceforge.net/>Opensignature</a>
+
+</body>
+
+</html>
+

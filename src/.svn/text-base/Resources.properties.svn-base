@@ -1,0 +1,20 @@
+window.title=Antonino Iacono e Roberto Resoli's Firma PDF
+default.cryptoki=CardOS_PKCS11.dll
+default.timestampserver=http://tss.pki.gva.es:8318/tsa
+label.cryptoki=Input cryptoki library name
+label.open=OPEN
+label.sign=SIGN
+label.hint=Complete following input fields and press SIGN below
+label.file=Input name of PDF to sign:
+label.pin=Input PIN:
+label.timestampserver=Timestamp server (and port for raw TCP):
+label.timestamp.user=Timestamp user:
+label.timestamp.password=Timestamp password:
+label.timestamp.hint= (only for timestamp)
+label.fieldName= Name of signature field
+label.fieldName.hint= (requested for approval signature)
+label.typeSignature= Signature type
+label.openOffice=With OpenOffice fields?
+item.typeSignature.certified= Author
+item.typeSignature.approval= Another signer
+

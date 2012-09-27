@@ -1,0 +1,59 @@
+This is the OpenSignPDF 0.0.x README file.
+
+Here is a download link for the OpenSignPDF Project on SourceForge:
+https://sourceforge.net/project/showfiles.php?group_id=67103&package_id=188602
+
+We currently provide in this file only instructions
+on how to compile and run the OpenSignPDF 0.0.x project. 
+
+Requirements:
+0) You will need a PKCS#11 smartcard supported by your system, and a running
+PCSC service on it ("smart card" service on Windows, pcscd daemon on *nix systems) 
+
+1) You should have JDK 1.4.x installed on your machine if you want to
+compile the source files (see the project's ./src folder)
+
+2) If you just want to run the already compiled classes 
+(see the project's ./bin folder ) you don't need a JDK 1.4.x.
+What you need is:
+- a JRE 1.4.x (JDK 1.4.x   bundle includes it). 
+- Read also the note about PKCS11 wrapper native library at point 3.
+- You will have to replace the file CA.cer in the root directory of the project
+  with the root certificate of the authority that issued your signing certificate.
+
+NOTE: I am using JDK 1.5.0 Update 8 which can be 
+downloaded from Sun's web site. Take a look at: 
+http://java.sun.com/javase/downloads/index.jsp
+
+3) The following libraries are needed to build and run  
+the project's source files (A version of them is already in the /lib 
+sub directory, you will also need to download and put on the library path 
+of your system the native library of the iaik PKCS#11 wrapper 
+in order to make your smart card accessible to the program):
+		
+	3.1) The iText package, which is a free Java API
+	for PDF files creation and manipulation. This library is 
+	available for download under the following location:
+	http://www.lowagie.com/iText/download.html
+		
+	3.2) The iaik.jar file contains the IAIK (Technical University of Graz, Austria): 
+	PKCS#11 Wrapper, which makes your PKCS11 library (cryptoki) available from JavaTM.
+	You can find more information and download a recent version from 
+	http://jce.iaik.tugraz.at/sic/products/core_crypto_toolkits/pkcs_11_wrapper.
+	
+4) The libraries described in 3) should be enough for compiling
+and running (remember the native library from IAIK) the OpenSignPDF
+ 0.0.x project. Note that we have included a .cmd file as well ( sign.cmd ) 
+in the project's root directory. 
+If you are using a Windows PC you may use it to run a simple GUI 
+which permits you to sign a pdf file of your choice (provided that 
+you have a JDK/JRE installed as mentioned above). There is also a shell (.sh)
+version targeted to *nix systems.
+A build.cmd script is also provided for compiling the sources and copying required 
+resources in the proper location.
+
+TODO
+Splitting API from gui, making possible a more flexible use of functionalities for developers.
+
+LICENSE
+OpenSignPDF is released under the GPL License.

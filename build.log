@@ -1,0 +1,69 @@
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:42: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+import sun.security.util.DerOutputStream;
+                        ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:43: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+import sun.security.util.DerValue;
+                        ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:44: warning: sun.security.util.ObjectIdentifier is internal proprietary API and may be removed in a future release
+import sun.security.util.ObjectIdentifier;
+                        ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:108: warning: sun.security.util.ObjectIdentifier is internal proprietary API and may be removed in a future release
+  public byte[] getSignData(ObjectIdentifier algOid, byte[] digest) throws IOException {
+                            ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:112: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream out = new DerOutputStream();
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:112: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream out = new DerOutputStream();
+                              ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:114: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream algS = new DerOutputStream();
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:114: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream algS = new DerOutputStream();
+                               ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:116: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream oidS = new DerOutputStream();
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:116: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream oidS = new DerOutputStream();
+                               ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:119: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream nullS = new DerOutputStream();
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:119: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream nullS = new DerOutputStream();
+                                ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:122: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    algS.putSequence(new DerValue[] { new DerValue(oidS.toByteArray()), new DerValue(nullS.toByteArray()) });
+                         ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:122: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    algS.putSequence(new DerValue[] { new DerValue(oidS.toByteArray()), new DerValue(nullS.toByteArray()) });
+                                          ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:122: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    algS.putSequence(new DerValue[] { new DerValue(oidS.toByteArray()), new DerValue(nullS.toByteArray()) });
+                                                                            ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:124: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream digestS = new DerOutputStream();
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:124: warning: sun.security.util.DerOutputStream is internal proprietary API and may be removed in a future release
+    DerOutputStream digestS = new DerOutputStream();
+                                  ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:127: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    DerValue[] dv = new DerValue[] { new DerValue(algS.toByteArray()), new DerValue(digestS.toByteArray()) };
+    ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:127: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    DerValue[] dv = new DerValue[] { new DerValue(algS.toByteArray()), new DerValue(digestS.toByteArray()) };
+                        ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:127: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    DerValue[] dv = new DerValue[] { new DerValue(algS.toByteArray()), new DerValue(digestS.toByteArray()) };
+                                         ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:127: warning: sun.security.util.DerValue is internal proprietary API and may be removed in a future release
+    DerValue[] dv = new DerValue[] { new DerValue(algS.toByteArray()), new DerValue(digestS.toByteArray()) };
+                                                                           ^
+./org/opensignature/opensignpdf/pkcs11/MyPkcs11.java:156: warning: sun.security.util.ObjectIdentifier is internal proprietary API and may be removed in a future release
+    byte[] abSignature = session.sign(getSignData(new ObjectIdentifier("2.16.840.1.101.3.4.2.1"), digest));
+                                                      ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+22 warnings

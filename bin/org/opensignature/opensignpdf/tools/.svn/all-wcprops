@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/opensignature/!svn/ver/53/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools
+END
+FileUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/opensignature/!svn/ver/49/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/FileUtils.java
+END
+PKCS11Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/opensignature/!svn/ver/49/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/PKCS11Util.java
+END
+TimeStampClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/opensignature/!svn/ver/53/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/TimeStampClient.java
+END
+Pkcs7Extractor.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/opensignature/!svn/ver/49/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/Pkcs7Extractor.java
+END
+Base64Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/opensignature/!svn/ver/50/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/Base64Utils.java
+END
+IOUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/opensignature/!svn/ver/49/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/IOUtils.java
+END
+CertUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/opensignature/!svn/ver/49/opensignpdf/trunk/src/org/opensignature/opensignpdf/tools/CertUtil.java
+END
